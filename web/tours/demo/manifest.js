@@ -36,7 +36,9 @@ window.__TOUR_MANIFEST__ = {
       "doorways": [
         {
           "toStationId": "00000000-0000-0000-0000-0000000000s2",
-          "yaw": 92.0
+          "yaw": 9.9,
+          "pitch": 30.9,
+          "rotOffset": 390
         }
       ]
     },
@@ -56,7 +58,8 @@ window.__TOUR_MANIFEST__ = {
       "doorways": [
         {
           "toStationId": "00000000-0000-0000-0000-0000000000s1",
-          "yaw": -95.0
+          "yaw": 75.9,
+          "pitch": 39.6
         }
       ]
     }
