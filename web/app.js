@@ -459,6 +459,7 @@ function makeHotspotDraggable(el, doorway) {
   el.addEventListener("pointerdown", function (e) {
     if (e.target.closest(".hs-del")) return;
     e.stopPropagation();
+    el.focus(); // на Safari/тач клик по <button> сам по себе фокус не даёт — без этого Q/E и стрелки не сработают
     el.setPointerCapture(e.pointerId);
     var startX = e.clientX, startY = e.clientY, moved = false;
     var rect = canvas.getBoundingClientRect();
