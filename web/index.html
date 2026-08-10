@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Виртуальный тур</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <canvas id="pano" aria-label="Панорама 360°. Перетаскивайте, чтобы осмотреться"></canvas>
+  <div id="nogl"></div>
+  <div id="fade"></div>
+  <div id="hotspots"></div>
+  <div id="zenBrand">VTOUR&nbsp;360°</div>
+
+  <header id="topbar" class="chrome" role="button" tabindex="0" aria-expanded="false" aria-controls="infoCard">
+    <div class="tb-main">
+      <span class="tb-badge"><span class="dot"></span>3D-ТУР&nbsp;·&nbsp;360°</span>
+      <h1 id="tbTitle">&nbsp;</h1>
+      <p class="addr" id="tbAddr"></p>
+    </div>
+    <div class="price" id="tbPrice" hidden>
+      <b id="tbPriceMain"></b>
+      <svg class="ic tb-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+  </header>
+
+  <div id="fabs" class="chrome">
+    <button class="fab" id="mapFab" aria-label="План квартиры" aria-pressed="false">
+      <svg class="ic" viewBox="0 0 24 24"><path d="M14.1 5.6a2 2 0 0 0 1.8 0l3.7-1.8a1 1 0 0 1 1.4.9v12.7a1 1 0 0 1-.6.9l-4.5 2.3a2 2 0 0 1-1.8 0l-4.2-2.1a2 2 0 0 0-1.8 0l-3.7 1.8a1 1 0 0 1-1.4-.9V6.7a1 1 0 0 1 .6-.9l4.5-2.3a2 2 0 0 1 1.8 0z"/><path d="M15 5.8v15"/><path d="M9 3.2v15"/></svg>
+    </button>
+  </div>
+
+  <div id="roomPanel" class="chrome collapsed">
+    <button id="roomPanelTab" aria-expanded="false" aria-controls="roomPanelBody">
+      <svg class="ic" viewBox="0 0 24 24"><path d="M3 9.5 12 3l9 6.5"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/></svg>
+      <span>Комнаты</span>
+    </button>
+    <div id="roomPanelBody">
+      <div class="rp-head">
+        <b>ПЛОЩАДЬ ПО КОМНАТАМ</b>
+        <button id="roomPanelClose" aria-label="Свернуть панель">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <ul id="roomList"></ul>
+      <div class="rp-sum" id="roomSum"></div>
+    </div>
+  </div>
+
+  <div id="mapCard" class="chrome hidden" role="dialog" aria-label="План квартиры — станции съёмки">
+    <div class="map-head"><b>СТАНЦИИ СЪЁМКИ</b><span id="mapCount"></span></div>
+    <svg id="plan" viewBox="0 0 224 160" aria-hidden="true">
+      <rect class="planbg" x="4" y="4" width="216" height="152" rx="10"/>
+      <g id="grid"></g>
+      <g id="stations-g"></g>
+    </svg>
+  </div>
+
+  <div id="infoCardBackdrop" hidden></div>
+  <section id="infoCard" hidden role="dialog" aria-label="Карточка объекта" aria-hidden="true">
+    <div class="ic-head">
+      <span class="sec-label">ОБЪЕКТ</span>
+      <button id="infoCardClose" aria-label="Закрыть">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="ic-body">
+      <div class="ic-price">
+        <b id="icPriceMain"></b>
+        <span id="icPricePerSqm"></span>
+      </div>
+      <div class="chips" id="icSpecs"></div>
+      <div id="icBuildingBlock" hidden>
+        <p class="sec-label">ДОМ</p>
+        <p class="desc" id="icBuildingText"></p>
+      </div>
+      <div id="icMapBlock" hidden>
+        <p class="sec-label">РАЙОН</p>
+        <div id="icMap"></div>
+        <p class="ic-map-note">Точный адрес — у риелтора</p>
+      </div>
+      <div class="ag-actions">
+        <a class="btn btn-call" id="icAgentCall">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          Позвонить</a>
+        <a class="btn btn-msg" id="icAgentMsg" target="_blank" rel="noopener">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
+          Написать</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="sheet">
+    <button id="sheetHandle" aria-expanded="false" aria-controls="sheetBody">
+      <span class="grip"></span>
+      <span class="sh-row">
+        <span class="chips" id="chips"></span>
+        <span class="sh-more">Детали
+          <svg class="ic" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg>
+        </span>
+      </span>
+    </button>
+    <div class="sheet-body" id="sheetBody">
+      <div id="descBlock" hidden>
+        <p class="sec-label">ОПИСАНИЕ</p>
+        <p class="desc" id="descText"></p>
+      </div>
+      <div id="specsBlock" hidden>
+        <p class="sec-label">ХАРАКТЕРИСТИКИ</p>
+        <div class="specs" id="specs"></div>
+      </div>
+      <div>
+        <p class="sec-label">СТАНЦИИ</p>
+        <div class="thumbs" id="thumbs"></div>
+      </div>
+      <div class="agent" id="agentBlock" hidden>
+        <div class="ava" id="agentAva" aria-hidden="true"></div>
+        <div class="ag-info">
+          <b id="agentName"></b>
+          <span id="agentMeta"></span>
+        </div>
+        <div class="ag-actions">
+          <a class="btn btn-call" id="agentCall">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+            Позвонить</a>
+          <a class="btn btn-msg" id="agentMsg" target="_blank" rel="noopener">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
+            Написать</a>
+          <button class="btn btn-share" id="shareBtn" aria-label="Поделиться ссылкой на тур">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="m16 6-4-4-4 4"/><path d="M12 2v13"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="made">
+        <span class="vmark">V</span>
+        Сделано в <b>VTOUR</b> · создайте 3D-тур своей квартиры
+      </div>
+    </div>
+  </section>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <div id="loader">
+    <div class="ld-bg" id="ldBg"></div>
+    <div class="ld-card">
+      <div class="ld-mark">V</div>
+      <div class="ld-name">VTOUR</div>
+      <p class="ld-sub" id="ldSub">Загрузка тура…</p>
+      <p class="ld-addr" id="ldAddr"></p>
+      <div class="ld-bar"><i id="ldFill"></i></div>
+      <div class="ld-pct" id="ldPct">0%</div>
+    </div>
+  </div>
+
+  <div id="errBox" hidden>
+    <div class="err-card">
+      <p class="err-title">Не удалось загрузить тур</p>
+      <p class="err-msg" id="errMsg"></p>
+    </div>
+  </div>
+
+  <div id="taintBox" hidden>
+    <div class="err-card">
+      <p class="err-title">Браузер блокирует локальный файл для 3D-просмотра</p>
+      <p class="err-msg">Chrome не даёт WebGL читать изображение, открытое напрямую с диска, даже из той же папки. Выберите тот же файл вручную — так браузер разрешит его использовать, и панорама откроется в полном 360°.</p>
+      <button class="btn btn-call" id="taintPickBtn">Выбрать фото станции</button>
+      <input type="file" id="filePicker" accept="image/*" hidden>
+    </div>
+  </div>
+</div>
+
+<script src="app.js" defer></script>
+</body>
+</html>

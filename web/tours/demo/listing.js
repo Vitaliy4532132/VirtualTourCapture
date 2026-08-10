@@ -1,0 +1,49 @@
+window.__TOUR_LISTING__ = {
+  "title": "2-комнатная квартира, 64 м²",
+  "price": {
+    "amount": 18900000,
+    "currency": "RUB"
+  },
+  "description": "Светлая двухкомнатная квартира с окнами на юго-запад и видом на парк. Дизайнерский ремонт 2023 года, тёплый пол в ванной, кухня с техникой Bosch остаётся. Дом бизнес-класса, закрытый двор, подземный паркинг.",
+  "specs": {
+    "totalArea": 64,
+    "rooms": 2,
+    "floor": 5,
+    "floorsTotal": 12
+  },
+  "building": {
+    "year": 2014,
+    "type": "монолит",
+    "district": "Центр",
+    "approxLocation": {
+      "lat": 55.7558,
+      "lng": 37.6173,
+      "radius": 350
+    }
+  },
+  "roomAreas": [
+    {
+      "stationId": "station_01",
+      "name": "Комната 1",
+      "area": 32,
+      "ceilingHeight": 2.7
+    },
+    {
+      "stationId": "station_02",
+      "name": "Комната 2",
+      "area": 32,
+      "ceilingHeight": 2.7
+    }
+  ],
+  "agent": {
+    "name": "Анна Ковалёва",
+    "initials": "АК",
+    "org": "АН «Простор»",
+    "hours": "на связи с 9:00 до 21:00",
+    "phone": "+79160000000",
+    "whatsapp": "79160000000"
+  },
+  "og": {
+    "image": "og.jpg"
+  }
+};

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "projectId": "00000000-0000-0000-0000-000000000001",
+  "title": "2-комнатная квартира, 64 м²",
+  "address": "Москва, ул. Лесная, 12",
+  "notes": "Тестовый бандл для проверки вьювера — две станции.",
+  "createdAt": "2026-07-15T18:00:00Z",
+  "device": {
+    "model": "iPhone16,2",
+    "osVersion": "17.5",
+    "appVersion": "0.1.0",
+    "hasLiDAR": true
+  },
+  "worldCoordinateSpace": "arkit_gravity_aligned",
+  "coordinateSpaces": [
+    { "id": "00000000-0000-0000-0000-0000000000a1", "startedAt": "2026-07-15T18:00:00Z" }
+  ],
+  "trackingInterruptions": [],
+  "stations": [
+    {
+      "id": "00000000-0000-0000-0000-0000000000s1",
+      "index": 1,
+      "roomLabel": "Комната 1",
+      "worldPosition": [0.0, 0.0, 0.0],
+      "frameCount": 36,
+      "coveragePercent": 0.94,
+      "path": "stations/station_01",
+      "coordinateSpaceId": "00000000-0000-0000-0000-0000000000a1",
+      "doorways": [
+        { "toStationId": "00000000-0000-0000-0000-0000000000s2", "yaw": 92.0 }
+      ]
+    },
+    {
+      "id": "00000000-0000-0000-0000-0000000000s2",
+      "index": 2,
+      "roomLabel": "Комната 2",
+      "worldPosition": [3.0, 0.0, 0.5],
+      "frameCount": 36,
+      "coveragePercent": 0.94,
+      "path": "stations/station_02",
+      "coordinateSpaceId": "00000000-0000-0000-0000-0000000000a1",
+      "doorways": [
+        { "toStationId": "00000000-0000-0000-0000-0000000000s1", "yaw": -95.0 }
+      ]
+    }
+  ],
+  "room": null
+}
