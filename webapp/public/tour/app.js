@@ -336,18 +336,31 @@ function project(d) {
  * дверь на неё молча не отображалась, хотя данные были верными. Теперь
  * явная дверь всегда побеждает, независимо от geometric K.
  */
+/*
+ * Если у станции есть явно прописанные двери — они ПОЛНОСТЬЮ заменяют
+ * geometric fallback (не дополняют его). Раньше двери просто добавлялись
+ * к ближайшим по расстоянию соседям, и если два соседних по координатам
+ * места (например, санузел и ванная, стоящие рядом на заглушечной прямой)
+ * оказывались в пределах maxDist — между ними появлялась незапланированная
+ * стрелка в обход двери. Geometric fallback остаётся только для станций,
+ * у которых дверей вообще нет — чтобы не оставлять их совсем без навигации.
+ */
 function neighbors(idx) {
-  var out = [];
-  EDGES.forEach(function (e) {
-    if (e[0] === idx) out.push(e[1]);
-    if (e[1] === idx) out.push(e[0]);
-  });
   var cur = STATIONS[idx];
-  (cur.doorways || []).forEach(function (dw) {
-    var j = STATIONS.findIndex(function (s) { return s.id === dw.toStationId; });
-    if (j >= 0 && out.indexOf(j) === -1) out.push(j);
+  if (cur.doorways && cur.doorways.length) {
+    var out = [];
+    cur.doorways.forEach(function (dw) {
+      var j = STATIONS.findIndex(function (s) { return s.id === dw.toStationId; });
+      if (j >= 0 && out.indexOf(j) === -1) out.push(j);
+    });
+    return out;
+  }
+  var out2 = [];
+  EDGES.forEach(function (e) {
+    if (e[0] === idx) out2.push(e[1]);
+    if (e[1] === idx) out2.push(e[0]);
   });
-  return out;
+  return out2;
 }
 /*
  * В manifest.json нет явного графа переходов между станциями — приложение
