@@ -1,4 +1,4 @@
-{
+window.__TOUR_MANIFEST__ = {
   "schemaVersion": 1,
   "projectId": "9fc0d590-cc06-4699-9e8d-6f619e87a1d6",
   "title": "Тур по объекту, 19 станций",
@@ -288,4 +288,4 @@
     }
   ],
   "room": null
-}
+};
