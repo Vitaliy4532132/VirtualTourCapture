@@ -414,6 +414,7 @@ svg{display:block;flex:none}
   box-shadow:var(--shadow-sm);
 }
 .admin-export:hover{background:rgba(255,255,255,.08)}
+.admin-rename{left:auto;right:12px}
 .admin-picker{
   position:fixed;z-index:80;min-width:190px;
   background:var(--surface-solid);border:1px solid var(--stroke);

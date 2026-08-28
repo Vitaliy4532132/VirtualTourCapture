@@ -32,7 +32,13 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_01",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "87538d2b-b778-4b3b-90ae-a9542a1b7c88",
+          "yaw": 90.0
+        }
+      ]
     },
     {
       "id": "87538d2b-b778-4b3b-90ae-a9542a1b7c88",
@@ -46,7 +52,17 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_02",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "59bb7589-470e-43ec-b0c7-181b0cf13fa6",
+          "yaw": -90.0
+        },
+        {
+          "toStationId": "ee54b11a-b131-4e90-89bf-9d250df21f44",
+          "yaw": 90.0
+        }
+      ]
     },
     {
       "id": "ee54b11a-b131-4e90-89bf-9d250df21f44",
@@ -60,7 +76,17 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_03",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "87538d2b-b778-4b3b-90ae-a9542a1b7c88",
+          "yaw": -90.0
+        },
+        {
+          "toStationId": "50863854-003e-446f-80a5-55fdebcef745",
+          "yaw": 90.0
+        }
+      ]
     },
     {
       "id": "50863854-003e-446f-80a5-55fdebcef745",
@@ -74,7 +100,17 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_04",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "ee54b11a-b131-4e90-89bf-9d250df21f44",
+          "yaw": -90.0
+        },
+        {
+          "toStationId": "5e968a65-60b9-4c9c-b4c3-3f1d6f9ad19a",
+          "yaw": 90.0
+        }
+      ]
     },
     {
       "id": "5e968a65-60b9-4c9c-b4c3-3f1d6f9ad19a",
@@ -88,7 +124,17 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_05",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "50863854-003e-446f-80a5-55fdebcef745",
+          "yaw": -90.0
+        },
+        {
+          "toStationId": "2d97fa22-4902-4f30-8a72-be1bf40ecce5",
+          "yaw": 90.0
+        }
+      ]
     },
     {
       "id": "2d97fa22-4902-4f30-8a72-be1bf40ecce5",
@@ -102,7 +148,17 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_06",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "5e968a65-60b9-4c9c-b4c3-3f1d6f9ad19a",
+          "yaw": -90.0
+        },
+        {
+          "toStationId": "f223a844-bd04-4a14-b0ad-c2ae1fecb6ba",
+          "yaw": 90.0
+        }
+      ]
     },
     {
       "id": "f223a844-bd04-4a14-b0ad-c2ae1fecb6ba",
@@ -116,7 +172,17 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_07",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "2d97fa22-4902-4f30-8a72-be1bf40ecce5",
+          "yaw": -90.0
+        },
+        {
+          "toStationId": "4364552e-1083-41b0-b8c2-783d95fea73d",
+          "yaw": 90.0
+        }
+      ]
     },
     {
       "id": "4364552e-1083-41b0-b8c2-783d95fea73d",
@@ -130,7 +196,17 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_08",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "f223a844-bd04-4a14-b0ad-c2ae1fecb6ba",
+          "yaw": -90.0
+        },
+        {
+          "toStationId": "97d6f278-afba-4e80-9016-22d3e7faed26",
+          "yaw": 90.0
+        }
+      ]
     },
     {
       "id": "97d6f278-afba-4e80-9016-22d3e7faed26",
@@ -144,7 +220,17 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_09",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "4364552e-1083-41b0-b8c2-783d95fea73d",
+          "yaw": -90.0
+        },
+        {
+          "toStationId": "68cccab7-4906-451e-b48c-37052071ab96",
+          "yaw": 90.0
+        }
+      ]
     },
     {
       "id": "68cccab7-4906-451e-b48c-37052071ab96",
@@ -158,7 +244,17 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_10",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "97d6f278-afba-4e80-9016-22d3e7faed26",
+          "yaw": -90.0
+        },
+        {
+          "toStationId": "5f40de05-2faa-4e30-a6e1-7f4174ac6d95",
+          "yaw": 90.0
+        }
+      ]
     },
     {
       "id": "5f40de05-2faa-4e30-a6e1-7f4174ac6d95",
@@ -172,7 +268,17 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_11",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "68cccab7-4906-451e-b48c-37052071ab96",
+          "yaw": -90.0
+        },
+        {
+          "toStationId": "7a6c31ac-e936-40c3-a46d-696bc73d6de1",
+          "yaw": 90.0
+        }
+      ]
     },
     {
       "id": "7a6c31ac-e936-40c3-a46d-696bc73d6de1",
@@ -186,7 +292,17 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_12",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "5f40de05-2faa-4e30-a6e1-7f4174ac6d95",
+          "yaw": -90.0
+        },
+        {
+          "toStationId": "2d6b0d57-4c4d-43aa-bdbe-425ccce5ca8f",
+          "yaw": 90.0
+        }
+      ]
     },
     {
       "id": "2d6b0d57-4c4d-43aa-bdbe-425ccce5ca8f",
@@ -200,7 +316,17 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_13",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "7a6c31ac-e936-40c3-a46d-696bc73d6de1",
+          "yaw": -90.0
+        },
+        {
+          "toStationId": "b438a499-fb7d-4571-8f33-ca3bc7b5f3fa",
+          "yaw": 90.0
+        }
+      ]
     },
     {
       "id": "b438a499-fb7d-4571-8f33-ca3bc7b5f3fa",
@@ -214,7 +340,17 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_14",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "2d6b0d57-4c4d-43aa-bdbe-425ccce5ca8f",
+          "yaw": -90.0
+        },
+        {
+          "toStationId": "96e45e00-ee34-4c0c-b432-2ef986fdb360",
+          "yaw": 90.0
+        }
+      ]
     },
     {
       "id": "96e45e00-ee34-4c0c-b432-2ef986fdb360",
@@ -228,7 +364,17 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_15",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "b438a499-fb7d-4571-8f33-ca3bc7b5f3fa",
+          "yaw": -90.0
+        },
+        {
+          "toStationId": "f3ec56ba-d836-4583-8eb5-e3a9e58ccfa9",
+          "yaw": 90.0
+        }
+      ]
     },
     {
       "id": "f3ec56ba-d836-4583-8eb5-e3a9e58ccfa9",
@@ -242,7 +388,17 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_16",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "96e45e00-ee34-4c0c-b432-2ef986fdb360",
+          "yaw": -90.0
+        },
+        {
+          "toStationId": "e02072c0-4033-43db-b12b-4160db75f61e",
+          "yaw": 90.0
+        }
+      ]
     },
     {
       "id": "e02072c0-4033-43db-b12b-4160db75f61e",
@@ -256,7 +412,17 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_17",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "f3ec56ba-d836-4583-8eb5-e3a9e58ccfa9",
+          "yaw": -90.0
+        },
+        {
+          "toStationId": "94af9962-4f32-43f0-b8b4-5443cfc7c013",
+          "yaw": 90.0
+        }
+      ]
     },
     {
       "id": "94af9962-4f32-43f0-b8b4-5443cfc7c013",
@@ -270,7 +436,17 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_18",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "e02072c0-4033-43db-b12b-4160db75f61e",
+          "yaw": -90.0
+        },
+        {
+          "toStationId": "1e6460c4-a3c3-4e85-9d93-fedbb115c8ef",
+          "yaw": 90.0
+        }
+      ]
     },
     {
       "id": "1e6460c4-a3c3-4e85-9d93-fedbb115c8ef",
@@ -284,7 +460,13 @@ window.__TOUR_MANIFEST__ = {
       "frameCount": 1,
       "coveragePercent": 1.0,
       "path": "stations/station_19",
-      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577"
+      "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
+      "doorways": [
+        {
+          "toStationId": "94af9962-4f32-43f0-b8b4-5443cfc7c013",
+          "yaw": -90.0
+        }
+      ]
     }
   ],
   "room": null

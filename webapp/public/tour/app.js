@@ -606,7 +606,12 @@ function handleAdminClick(e) {
 function adminStorageKey() { return "vtour_admin_doorways_" + tourBase; }
 function saveAdminDraft() {
   var data = {};
-  STATIONS.forEach(function (s) { if (s.doorways && s.doorways.length) data[s.id] = s.doorways; });
+  STATIONS.forEach(function (s) {
+    var entry = {};
+    if (s.doorways && s.doorways.length) entry.doorways = s.doorways;
+    if (s._renamed) entry.roomLabel = s.roomLabel;
+    if (entry.doorways || entry.roomLabel) data[s.id] = entry;
+  });
   try { localStorage.setItem(adminStorageKey(), JSON.stringify(data)); } catch (e) {}
 }
 function loadAdminDraft() {
@@ -614,19 +619,43 @@ function loadAdminDraft() {
     var raw = localStorage.getItem(adminStorageKey());
     if (!raw) return;
     var data = JSON.parse(raw);
-    STATIONS.forEach(function (s) { if (data[s.id]) s.doorways = data[s.id]; });
-    toast("Черновик дверей восстановлен из этого браузера");
+    STATIONS.forEach(function (s) {
+      var entry = data[s.id];
+      if (!entry) return;
+      if (entry.doorways) s.doorways = entry.doorways;
+      if (entry.roomLabel) { s.roomLabel = entry.roomLabel; s._renamed = true; }
+    });
+    toast("Черновик восстановлен из этого браузера");
   } catch (e) {}
 }
 function exportDoorways() {
-  var patch = STATIONS.filter(function (s) { return s.doorways && s.doorways.length; })
-    .map(function (s) { return { stationId: s.id, doorways: s.doorways }; });
+  var patch = STATIONS.filter(function (s) { return (s.doorways && s.doorways.length) || s._renamed; })
+    .map(function (s) {
+      var entry = { stationId: s.id };
+      if (s.doorways && s.doorways.length) entry.doorways = s.doorways;
+      if (s._renamed) entry.roomLabel = s.roomLabel;
+      return entry;
+    });
   var blob = new Blob([JSON.stringify(patch, null, 2)], { type: "application/json" });
   var a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
   a.download = "doorways-patch.json";
   a.click();
   setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+}
+function renameCurrentStation() {
+  var st = STATIONS[currentIdx];
+  var next = window.prompt("Новое название станции:", st.roomLabel);
+  if (next === null) return;
+  next = next.trim();
+  if (!next || next === st.roomLabel) return;
+  st.roomLabel = next;
+  st._renamed = true;
+  saveAdminDraft();
+  buildHotspots();
+  buildThumbs();
+  updateThumbActive();
+  toast("Переименовано: " + next);
 }
 if (adminMode) {
   var adminBadge = document.createElement("div");
@@ -636,8 +665,13 @@ if (adminMode) {
   adminExportBtn.className = "admin-export";
   adminExportBtn.textContent = "Экспорт doorways.json (чтобы увидели все)";
   adminExportBtn.addEventListener("click", exportDoorways);
+  var adminRenameBtn = document.createElement("button");
+  adminRenameBtn.className = "admin-export admin-rename";
+  adminRenameBtn.textContent = "✎ Переименовать станцию";
+  adminRenameBtn.addEventListener("click", renameCurrentStation);
   app.appendChild(adminBadge);
   app.appendChild(adminExportBtn);
+  app.appendChild(adminRenameBtn);
 }
 
 /* ================= Переход между станциями ================= */
