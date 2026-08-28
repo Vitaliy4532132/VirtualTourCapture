@@ -328,11 +328,24 @@ function project(d) {
   if (nx < -1.35 || nx > 1.35) return null;
   return { x: (nx * .5 + .5) * W, y: (.5 - ny * .5) * H };
 }
+/*
+ * Соседи станции = геометрический fallback (ближайшие K) ОБЪЕДИНЁННЫЙ с
+ * явно расставленными дверями. Раньше двери влияли только на то, КАК
+ * рисуется стрелка, а не на то, показывается ли она вообще — если станция
+ * не попадала в geometric top-K (например, слишком много близких соседей),
+ * дверь на неё молча не отображалась, хотя данные были верными. Теперь
+ * явная дверь всегда побеждает, независимо от geometric K.
+ */
 function neighbors(idx) {
   var out = [];
   EDGES.forEach(function (e) {
     if (e[0] === idx) out.push(e[1]);
     if (e[1] === idx) out.push(e[0]);
+  });
+  var cur = STATIONS[idx];
+  (cur.doorways || []).forEach(function (dw) {
+    var j = STATIONS.findIndex(function (s) { return s.id === dw.toStationId; });
+    if (j >= 0 && out.indexOf(j) === -1) out.push(j);
   });
   return out;
 }
