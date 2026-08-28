@@ -392,10 +392,15 @@ function buildHotspots() {
     var yawRad = isDoor ? dw.yaw * Math.PI / 180 : bearing(cur, st);
     var dipRad = isDoor ? (dw.pitch !== undefined ? dw.pitch * Math.PI / 180 : DOOR_DIP) : null;
     var d = dist(cur, st);
+    /* Та же комната (совпадает roomLabel/имя из roomAreas) — голая стрелка без
+       подписи, это просто другой ракурс той же точки. Другая комната — подпись
+       с названием, как переход. */
+    var sameRoom = roomDisplayName(cur) === roomDisplayName(st);
     var el = document.createElement("button");
     el.className = "hs";
-    el.setAttribute("aria-label", "Перейти: " + roomDisplayName(st));
-    el.innerHTML = '<span class="hs-name">' + escapeHtml(roomDisplayName(st)) + '</span><span class="hs-pad">' + CHEV + '</span>';
+    el.setAttribute("aria-label", sameRoom ? "Дальше" : "Перейти: " + roomDisplayName(st));
+    el.innerHTML = (sameRoom ? "" : '<span class="hs-name">' + escapeHtml(roomDisplayName(st)) + '</span>') +
+      '<span class="hs-pad">' + CHEV + '</span>';
     el.addEventListener("click", function (e) {
       e.stopPropagation();
       if (el._justDragged) { el._justDragged = false; return; }
