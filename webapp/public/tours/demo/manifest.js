@@ -129,6 +129,14 @@ window.__TOUR_MANIFEST__ = {
         {
           "toStationId": "50863854-003e-446f-80a5-55fdebcef745",
           "yaw": -90.0
+        },
+        {
+          "toStationId": "2d97fa22-4902-4f30-8a72-be1bf40ecce5",
+          "yaw": 90.0
+        },
+        {
+          "toStationId": "f223a844-bd04-4a14-b0ad-c2ae1fecb6ba",
+          "yaw": 90.0
         }
       ]
     },
@@ -137,7 +145,7 @@ window.__TOUR_MANIFEST__ = {
       "index": 6,
       "roomLabel": "Санузел",
       "worldPosition": [
-        1300.0,
+        12.5,
         0.0,
         0.0
       ],
@@ -145,14 +153,19 @@ window.__TOUR_MANIFEST__ = {
       "coveragePercent": 1.0,
       "path": "stations/station_06",
       "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
-      "doorways": []
+      "doorways": [
+        {
+          "toStationId": "5e968a65-60b9-4c9c-b4c3-3f1d6f9ad19a",
+          "yaw": -90.0
+        }
+      ]
     },
     {
       "id": "f223a844-bd04-4a14-b0ad-c2ae1fecb6ba",
       "index": 7,
       "roomLabel": "Ванная",
       "worldPosition": [
-        1350.0,
+        15.0,
         0.0,
         0.0
       ],
@@ -160,7 +173,12 @@ window.__TOUR_MANIFEST__ = {
       "coveragePercent": 1.0,
       "path": "stations/station_07",
       "coordinateSpaceId": "87a7ac0e-b192-4285-85c5-bb683d5f0577",
-      "doorways": []
+      "doorways": [
+        {
+          "toStationId": "5e968a65-60b9-4c9c-b4c3-3f1d6f9ad19a",
+          "yaw": -90.0
+        }
+      ]
     },
     {
       "id": "4364552e-1083-41b0-b8c2-783d95fea73d",
