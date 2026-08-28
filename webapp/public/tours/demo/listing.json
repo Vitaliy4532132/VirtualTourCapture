@@ -1,18 +1,14 @@
 {
-  "title": "2-комнатная квартира, 64 м²",
+  "title": "Тур по объекту, 19 станций",
   "price": { "amount": 18900000, "currency": "RUB" },
-  "description": "Светлая двухкомнатная квартира с окнами на юго-запад и видом на парк. Дизайнерский ремонт 2023 года, тёплый пол в ванной, кухня с техникой Bosch остаётся. Дом бизнес-класса, закрытый двор, подземный паркинг.",
-  "specs": { "totalArea": 64, "rooms": 2, "floor": 5, "floorsTotal": 12 },
+  "description": "Реальный тур из 19 станций съёмки — заполните описание объекта.",
+  "specs": { "totalArea": 0, "rooms": 0, "floor": 0, "floorsTotal": 0 },
   "building": {
-    "year": 2014,
-    "type": "монолит",
-    "district": "Центр",
+    "year": 0,
+    "type": "",
+    "district": "",
     "approxLocation": { "lat": 55.7558, "lng": 37.6173, "radius": 350 }
   },
-  "roomAreas": [
-    { "stationId": "station_01", "name": "Комната 1", "area": 32, "ceilingHeight": 2.7 },
-    { "stationId": "station_02", "name": "Комната 2", "area": 32, "ceilingHeight": 2.7 }
-  ],
   "agent": {
     "name": "Анна Ковалёва",
     "initials": "АК",
